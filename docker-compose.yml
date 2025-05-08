@@ -1,0 +1,16 @@
+name: star-history
+
+services:
+  star-history:
+    container_name: star-history
+    image: starhistory
+    build: .
+    restart: unless-stopped
+    cpus: "0.5"
+    mem_limit: "100M"
+    env_file: .env
+    ports:
+      - "8080:8080"
+    # Workaround for ENOTFOUND for api.github.com
+    extra_hosts:
+      - "api.github.com:140.82.121.6"
