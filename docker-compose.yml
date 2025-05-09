@@ -7,10 +7,12 @@ services:
     build: .
     restart: unless-stopped
     cpus: "0.5"
-    mem_limit: "100M"
+    mem_limit: "75M"
+    #cap_drop:
+    # - ALL
     env_file: .env
     ports:
       - "8080:8080"
     # Workaround for ENOTFOUND for api.github.com
-    extra_hosts:
-      - "api.github.com:140.82.121.6"
+    #extra_hosts:
+    #  - "api.github.com:140.82.121.6"
